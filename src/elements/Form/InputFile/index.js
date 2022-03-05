@@ -9,6 +9,8 @@ export default function File(props) {
     placeholder,
     name,
     accept,
+    append,
+    HasError,
     prepend,
     outerClassName,
     inputClassName,

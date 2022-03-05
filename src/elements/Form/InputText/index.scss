@@ -1,5 +1,5 @@
 @import "../../../assets/bootstrap/scss/colorVariables";
-.input-date {
+.input-text {
   margin-bottom: 20px;
   position: relative;
   .input-group {
@@ -24,22 +24,20 @@
       outline: 0;
       box-shadow: none;
       background-color: $gray-100;
-      padding: 0.575rem 45px;
-      text-align: center;
-      justify-content: center;
+      padding: 0.575rem 14px;
       width: 100%;
       height: 45px;
       &::placeholder {
         color: $gray-200;
       }
     }
-    .error-helper {
-      position: absolute;
-      top: 45px;
-      background-color: $red;
-      color: $white;
-      padding: 0 2px;
-      font-size: 0.675rem;
-    }
+  }
+  .error-helper {
+    position: absolute;
+    top: 45px;
+    background-color: $red;
+    color: $white;
+    padding: 0 2px;
+    font-size: 0.675rem;
   }
 }
