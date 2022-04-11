@@ -1,5 +1,7 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Router, Route, Switch } from "react-router-dom";
+
+import { createBrowserHistory } from "history";
 
 import "assets/bootstrap/scss/style.scss";
 import LandingPage from "pages/LandingPage";
@@ -7,17 +9,21 @@ import DetailsPage from "pages/DetailsPage";
 import Checkout from "pages/Checkout";
 import Example from "pages/Example";
 
+const history = createBrowserHistory({
+  basename: process.env.PUBLIC_URL,
+});
+
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<LandingPage />}></Route>
-          <Route path="/properties/:id" element={<DetailsPage />}></Route>
-          <Route path="/checkout" element={<Checkout />}></Route>
-          <Route path="/example" element={<Example />}></Route>
-        </Routes>
-      </BrowserRouter>
+      <Router history={history} basename={process.env.PUBLIC_URL}>
+        <Switch>
+          <Route exact path="/" component={LandingPage} />
+          <Route exact path="/properties/:id" component={DetailsPage} />
+          <Route path="/checkout" component={Checkout} />
+          <Route path="/example" component={Example} />
+        </Switch>
+      </Router>
     </div>
   );
 }
