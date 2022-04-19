@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+
 import propTypes from "prop-types";
 
 import Button from "elements/Button";
@@ -32,6 +33,7 @@ class BookingForm extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     const { data } = this.state;
+
     if (prevState.data.date !== data.date) {
       const startDate = new Date(data.date.startDate);
       const endDate = new Date(data.date.endDate);
@@ -43,6 +45,8 @@ class BookingForm extends Component {
         },
       });
     }
+
+    console.log(data.duration);
 
     if (prevState.data.duration !== data.duration) {
       const startDate = new Date(data.date.startDate);
@@ -78,6 +82,7 @@ class BookingForm extends Component {
   render() {
     const { data } = this.state;
     const { itemDetails } = this.props;
+
     return (
       <div className="card bordered" style={{ padding: "60px 80px" }}>
         <h4 className="mb-3">Start Booking</h4>
@@ -88,7 +93,7 @@ class BookingForm extends Component {
           </span>
         </h5>
 
-        <label htmlFor="duration">How long you will stay ?</label>
+        <label htmlFor="duration">How long you will stay?</label>
         <InputNumber
           max={30}
           suffix={" night"}
@@ -114,6 +119,7 @@ class BookingForm extends Component {
             {data.duration} {itemDetails.unit}
           </span>
         </h6>
+
         <Button
           className="btn"
           hasShadow
